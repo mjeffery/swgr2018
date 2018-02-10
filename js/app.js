@@ -20,14 +20,19 @@ angular.module('app', ['firebase', 'ui.router'])
         bindings: { name: '@' }
     })
 
-    .component('usersList', {
-        controller: ['users', function(users) {
+    .component('camera', {
+        controller: ['$element', function($element) {
             var ctrl = this;
+            let canvas = $element.find('canvas');
+
+            this.camera = new Camera(canvas[0]);
+            this.camera.start();
+
             ctrl.users = users;
         }],
         template: `
             <div>
-                <p ng-repeat="user in $ctrl.users">{{user|json}}</p> 
+                <canvas></canvas>
             </div>
         `
     })
@@ -55,7 +60,7 @@ angular.module('app', ['firebase', 'ui.router'])
             name: 'main',
             url: '/',
             templateUrl: '/templates/main.html' 
-        })
+        });
 
         $urlRouterProvider.otherwise('/sign-in');
     })
