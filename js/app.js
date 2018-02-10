@@ -1,5 +1,20 @@
 angular.module('app', ['firebase', 'ui.router'])
 
+    .component('app', {
+        templateUrl: '/templates/app.html',
+        controller: function($firebaseAuth, $state) {
+            var auth = $firebaseAuth()
+
+            this.currentUser = auth.$getAuth()
+
+            this.logout = function() {
+                auth.$signOut()
+            }
+
+            auth.$onAuthStateChanged( user => this.currentUser = user )
+        }
+    })
+
     .component('greeter', {
         template: '<h1>Hello, {{$ctrl.name}}</h1>',
         bindings: { name: '@' }

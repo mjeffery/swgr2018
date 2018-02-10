@@ -1,0 +1,4 @@
+<div ng-if="$ctrl.currentUser">
+    {{$ctrl.currentUser.displayName}} | <a href="#" ng-click="$ctrl.logout()">Sign Out</a>
+</div>
+<ui-view></ui-view>

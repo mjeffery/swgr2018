@@ -1,12 +1,14 @@
 <h1>Sign In</h1>
 <div ng-if="$ctrl.error">{{$ctrl.error}}</div>
 <form name="loginForm" ng-submit="$ctrl.login()">
-
-    <label for="email">email</label>
-    <input name="email" ng-model="$ctrl.email" ng-required>
-    
-    <label for="password">password</label>
-    <input name="password" type="password" ng-model="$ctrl.password" ng-required>
-
+    <div>
+        <label for="email">email</label>
+        <input name="email" ng-model="$ctrl.email" ng-required>
+    </div>
+    <div> 
+        <label for="password">password</label>
+        <input name="password" type="password" ng-model="$ctrl.password" ng-required>
+    </div>
     <button ng-disabled="loginForm.$invalid" type="submit">Sign In</button>
+    <a ui-sref="register">register</a>
 </form>
