@@ -1,0 +1,19 @@
+{
+  "name": "swgr2018",
+  "version": "0.0.1",
+  "description": "Startup Weekend Grand Rapids 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjeffery/swgr2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjeffery/swgr2018/issues"
+  },
+  "homepage": "https://github.com/mjeffery/swgr2018#readme"
+}
