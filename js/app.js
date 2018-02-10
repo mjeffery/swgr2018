@@ -42,5 +42,5 @@ angular.module('app', ['firebase', 'ui.router'])
             templateUrl: '/templates/main.html' 
         })
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/sign-in');
     })
