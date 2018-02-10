@@ -1,4 +1,4 @@
-angular.module('app', ['firebase'])
+angular.module('app', ['firebase', 'ui.router'])
 
     .component('greeter', {
         template: '<h1>Hello, {{$ctrl.name}}</h1>',
@@ -9,12 +9,6 @@ angular.module('app', ['firebase'])
         controller: ['users', function(users) {
             var ctrl = this;
             ctrl.users = users;
-
-            users.$loaded()
-                .then( () => {
-                    console.log('logger')
-                    debugger;
-                })
         }],
         template: `
             <div>
@@ -39,4 +33,14 @@ angular.module('app', ['firebase'])
             messagingSenderId: "1035921728332"
           };
           firebase.initializeApp(config);
+    })
+
+    .config(function($stateProvider, $urlRouterProvider) {
+        $stateProvider.state({
+            name: 'main',
+            url: '/',
+            templateUrl: '/templates/main.html' 
+        })
+
+        $urlRouterProvider.otherwise('/');
     })
