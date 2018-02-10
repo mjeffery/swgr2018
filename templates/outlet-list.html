@@ -1,7 +1,8 @@
 Outlet List
 
 <p ng-repeat="outlet in $ctrl.outlets">
-    <a ui-ref=""></a>{{outlet|json}}
+    <a ui-sref="outlet({outletId: outlet.$id})" >View Outlet</a>
+    {{outlet|json}}
 </p>
 
 <button ng-click="$ctrl.addOutlet()">Add Outlet</button>

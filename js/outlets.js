@@ -26,7 +26,7 @@ angular.module('app')
     .component('outlet', {
         templateUrl: '/templates/outlet.html',
         bindings: {
-            uid: '<'
+            outlet: '<'
         },
         controller: function() {
             var ctrl = this;
@@ -35,17 +35,21 @@ angular.module('app')
     })
 
     .config(function($stateProvider) {
+
         $stateProvider.state({
             name: 'outlet',
-            url: '/outlets/:outlet',
+            url: '/outlets/:outletId',
+            component: 'outlet',
             resolve: {
-                uid: function($firebaseAuth, $state){
-                    return $firebaseAuth().$requireSignIn().then(function(auth){
-                        return auth.uid;
-                    })
-                        .catch(function () {
-                            $state.go('/');
-                        });
+                requireAuth: function($firebaseAuth, $state){
+                    return $firebaseAuth().$requireSignIn().catch(function(){
+                        $state.go('/');
+                    });
+                },
+                outlet: function($stateParams, outlets){
+                    return outlets.$loaded().then(function(outletData){
+                        return outletData.$getRecord($stateParams.outletId);
+                    });
                 }
             }
         });
