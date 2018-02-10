@@ -21,7 +21,7 @@ class Camera {
     }
 
     stop() {
-        this.canvas.style.display = "none";
+        //this.canvas.style.display = "none";
         clearInterval(this.interval);
         if (this.videoDevice) this.videoDevice.stop();
     }
