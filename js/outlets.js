@@ -26,6 +26,15 @@ angular.module('app')
                     ctrl.result = data;
                 })
             }
+
+            ctrl.turnOn = function(outlet){
+                outlet.status = "1a";
+                ctrl.outlets.$save(outlet);
+            };
+            ctrl.turnOff = function(outlet){
+                outlet.status = "0a";
+                outlets.$save(outlet);
+            }
         }
     })
 

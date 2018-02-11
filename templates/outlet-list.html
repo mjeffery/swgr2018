@@ -10,15 +10,14 @@
 
                     <div class="card-block">
                         <h4 class="card-title">{{outlet.name}}</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">{{outlet.status}}</h6>
                         <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
                         <a ui-sref="outlet({outletId: outlet.$id})">Edit</a>
                     </div>
 
                     <div class="card-footer text-muted">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-success">On</button>
-                            <button type="button" class="btn danger">Off</button>
+                            <button type="button" class="btn btn-success" ng-disabled="$ctrl.status.$value == 0" ng-click="$ctrl.turnOn(outlet)">On</button>
+                            <button type="button" class="btn danger"  ng-disabled="$ctrl.status.$value == 1" ng-click="$ctrl.turnOff(outlet)">Off</button>
                         </div>
                     </div>
 
