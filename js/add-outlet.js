@@ -134,7 +134,7 @@ angular.module('app')
                     case 'finished-pair': 
                         this.state = 'finished-pair';
                         $timeout(1000)
-                            .then( () => $state.go('firstTimeConfigure', { outlet }) )
+                            .then( () => $state.go('firstTimeConfigure', { outletId: outlet.$id }) )
                         break;
                 }
             })
@@ -150,9 +150,15 @@ angular.module('app')
 
     .component('firstTimeConfigure', {
         templateUrl: '/templates/first-time-configure.html',
-        binding: { outlet: '<' },
-        controller: function() {
+        bindings: { outlet: '<' },
+        controller: function($state) {
+            var ctrl = this;
 
+            this.$onInit = function() {
+                if(!ctrl.outlet) {
+                    $state.go('main')
+                }
+            }
         }
     })
 
@@ -179,8 +185,13 @@ angular.module('app')
 
         $stateProvider.state({
             name: 'firstTimeConfigure',
-            url: '/first-time-configure',
-            component: 'firstTimeConfigure'
+            url: '/first-time-configure?outletId',
+            component: 'firstTimeConfigure',
+            resolve: {
+                outlet: function($stateParams, outlets) {
+                    return outlets.$getRecord($stateParams.outletId)
+                }
+            }
         })
 
         function resolveStateParams(...params) {

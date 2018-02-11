@@ -22,14 +22,13 @@ angular.module('app', ['firebase', 'ui.router'])
 
     .component('camera', {
         bindings: {
-            //outlet: '^^outlet',
             outlet: '<'
         },
         controller: ['$interval', '$element', 'outlets', function($interval, $element, outlets) {
             var ctrl = this;
             let camera = null;
-            ctrl.$postLink = function() {
 
+            ctrl.$postLink = function() {
                 if(camera) {
                     this.camera.stop();
                 }
@@ -37,7 +36,7 @@ angular.module('app', ['firebase', 'ui.router'])
                 let canvas = $element.find('canvas');
                 camera = new Camera(canvas[0]);
                 ctrl.something = true;
-                if(!ctrl.outlet.photo) {
+                if(ctrl.outlet && !ctrl.outlet.photo) {
                     camera.start();
                 }
             };
@@ -48,7 +47,7 @@ angular.module('app', ['firebase', 'ui.router'])
                 camera.stop();
 
                 ctrl.outlet.photo = camera.getSnapshot()
-                    .then((photo)=>{
+                    .then( (photo) => {
                         ctrl.outlet.photo = photo;
                         ctrl.outlets.$save(ctrl.outlet);
                     })
@@ -60,13 +59,10 @@ angular.module('app', ['firebase', 'ui.router'])
                 camera.start();
             };
 
-            ctrl.save = function() {
-                //ctrl.outlet.outlet.photo = ctrl.photo;
-            };
-
+            ctrl.save = function() { }
         }],
-        template: `
-            <div ng-show="!$ctrl.outlet.photo">
+        template: 
+            `<div ng-show="!$ctrl.outlet.photo">
                 <canvas></canvas>
                 <button ng-click="$ctrl.takePhoto()">Take Picture</button>
             </div>

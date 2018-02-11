@@ -15,7 +15,7 @@ angular.module('app')
 
             ctrl.outlets = outlets;
 
-            ctrl.addOutlet = function(){
+            ctrl.addOutlet = function() {
                 var outlet = {name: 'bathroom', status: 'enabled'};
                 ctrl.outlets.$add(outlet).then(function(data){
                     ctrl.result = data;
@@ -67,9 +67,9 @@ angular.module('app')
                     return $firebaseAuth().$requireSignIn().then(function(auth){
                         return auth.uid;
                     })
-                        .catch(function () {
-                            $state.go('/');
-                        });
+                    .catch(function () {
+                        $state.go('/');
+                    });
                 }
             }
         });

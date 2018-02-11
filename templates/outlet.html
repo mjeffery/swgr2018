@@ -1,17 +1,18 @@
-<div>
-    <h1>
-        OUTLET
-    </h1>
+<mobile-wrapper>
+    <div>
+        <h1>
+            OUTLET
+        </h1>
+        <p>
+            <label>Name</label><br>
+            <input ng-model="$ctrl.outlet.name">
+        </p>
+        <p>
+            <label>Status</label><br>
+            <input ng-model="$ctrl.outlet.status">
+        </p>
 
-    <p>
-        <label>Name</label><br>
-        <input ng-model="$ctrl.outlet.name">
-    </p>
-    <p>
-        <label>Status</label><br>
-        <input ng-model="$ctrl.outlet.status">
-    </p>
-
-    <camera outlet="$ctrl.outlet"></camera>
-    <button ng-click="$ctrl.save()">Save</button>
-</div>
+        <camera outlet="$ctrl.outlet"></camera>
+        <button ng-click="$ctrl.save()">Save</button>
+    </div>
+</mobile-wrapper>
