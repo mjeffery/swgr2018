@@ -1,0 +1,233 @@
+[debug] [2018-02-11T17:35:22.929Z] ----------------------------------------------------------------------
+[debug] [2018-02-11T17:35:22.932Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-02-11T17:35:22.932Z] CLI Version:   3.17.4
+[debug] [2018-02-11T17:35:22.932Z] Platform:      darwin
+[debug] [2018-02-11T17:35:22.932Z] Node Version:  v9.4.0
+[debug] [2018-02-11T17:35:22.933Z] Time:          Sun Feb 11 2018 12:35:22 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:22.933Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-11T17:35:22.947Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-11T17:35:22.947Z] > authorizing via signed-in user
+[debug] [2018-02-11T17:35:22.950Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/swgr2018  
+  
+ Sun Feb 11 2018 12:35:22 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:23.256Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:35:23.257Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/swgr2018/tokens  
+  
+ Sun Feb 11 2018 12:35:23 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:23.870Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'swgr2018'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2018-02-11T17:35:24.024Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "mqtt": "^2.15.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-02-11T17:35:24.025Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/swgr2018?view=CONSUMER_VIEW  
+  
+ Sun Feb 11 2018 12:35:24 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:24.025Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/swgr2018?view=CONSUMER_VIEW  
+  
+ Sun Feb 11 2018 12:35:24 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:24.496Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-02-11T17:35:24.534Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:35:24.536Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/swgr2018  
+  
+ Sun Feb 11 2018 12:35:24 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:24.536Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/swgr2018/apiKeys  
+  
+ Sun Feb 11 2018 12:35:24 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:24.702Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:35:24.781Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-02-11T17:35:24.786Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/swgr2018/configs  
+  
+ Sun Feb 11 2018 12:35:24 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:24.916Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (34.01 KB) for uploading
+[debug] [2018-02-11T17:35:25.625Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.swgr2018.appspot.com  
+  
+ Sun Feb 11 2018 12:35:25 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:25.900Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:35:25.902Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.swgr2018.appspot.com/o?uploadType=media&name=firebase-functions-source  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 34829,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/qf/0xknxwf94xv0cdgrqrjy77s00000gn/T/firebase-functions-22686qAhAQxavnfFL.zip',
+  fd: 23,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: undefined,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 34829,
+  closed: false } 
+ Sun Feb 11 2018 12:35:25 GMT-0500 (EST)
+[debug] [2018-02-11T17:35:26.225Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing . directory for upload...
+[debug] [2018-02-11T17:35:27.595Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/swgr2018/uploads/-L54vstXf68s-KJitRi-?fileCount=241&message=  
+  
+ Sun Feb 11 2018 12:35:27 GMT-0500 (EST)
+[debug] [2018-02-11T17:36:20.399Z] Error: write EPIPE
+    at _errnoException (util.js:1003:13)
+    at WriteWrap.afterWrite [as oncomplete] (net.js:863:14)
+[error] 
+[error] Error: Server Error. write EPIPE
+[debug] [2018-02-11T17:37:26.222Z] ----------------------------------------------------------------------
+[debug] [2018-02-11T17:37:26.225Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-02-11T17:37:26.225Z] CLI Version:   3.17.4
+[debug] [2018-02-11T17:37:26.225Z] Platform:      darwin
+[debug] [2018-02-11T17:37:26.225Z] Node Version:  v9.4.0
+[debug] [2018-02-11T17:37:26.226Z] Time:          Sun Feb 11 2018 12:37:26 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:26.226Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-11T17:37:26.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-11T17:37:26.240Z] > authorizing via signed-in user
+[debug] [2018-02-11T17:37:26.242Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/swgr2018  
+  
+ Sun Feb 11 2018 12:37:26 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:26.784Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:37:26.786Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/swgr2018/tokens  
+  
+ Sun Feb 11 2018 12:37:26 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:27.211Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'swgr2018'...
+[info] 
+[info] i  deploying functions, hosting
+[debug] [2018-02-11T17:37:27.603Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "firebase-admin": "~5.8.1",
+    "firebase-functions": "^0.8.1",
+    "mqtt": "^2.15.2"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2018-02-11T17:37:27.605Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/swgr2018?view=CONSUMER_VIEW  
+  
+ Sun Feb 11 2018 12:37:27 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:27.606Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/swgr2018?view=CONSUMER_VIEW  
+  
+ Sun Feb 11 2018 12:37:27 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:30.091Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:37:30.101Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2018-02-11T17:37:30.103Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/swgr2018  
+  
+ Sun Feb 11 2018 12:37:30 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:30.104Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/swgr2018/apiKeys  
+  
+ Sun Feb 11 2018 12:37:30 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:30.256Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:37:30.360Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2018-02-11T17:37:30.366Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/swgr2018/configs  
+  
+ Sun Feb 11 2018 12:37:30 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:30.524Z] <<< HTTP RESPONSE 200
+[info] i  functions: packaged functions (34.01 KB) for uploading
+[debug] [2018-02-11T17:37:30.916Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.swgr2018.appspot.com  
+  
+ Sun Feb 11 2018 12:37:30 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:31.188Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T17:37:31.189Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.swgr2018.appspot.com/o?uploadType=media&name=firebase-functions-source  
+ ReadStream {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 65536,
+     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
+     length: 34829,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: true,
+     endEmitted: false,
+     reading: false,
+     sync: false,
+     needReadable: false,
+     emittedReadable: true,
+     readableListening: false,
+     resumeScheduled: false,
+     destroyed: false,
+     defaultEncoding: 'utf8',
+     awaitDrain: 0,
+     readingMore: false,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: { end: [Function] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  path: '/var/folders/qf/0xknxwf94xv0cdgrqrjy77s00000gn/T/firebase-functions-22704ua6CsLOFnhbY.zip',
+  fd: 20,
+  flags: 'r',
+  mode: 438,
+  start: undefined,
+  end: undefined,
+  autoClose: true,
+  pos: undefined,
+  bytesRead: 34829,
+  closed: false } 
+ Sun Feb 11 2018 12:37:31 GMT-0500 (EST)
+[debug] [2018-02-11T17:37:31.598Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: functions folder uploaded successfully
+[info] i  hosting: preparing . directory for upload...
+[debug] [2018-02-11T17:37:32.861Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/swgr2018/uploads/-L54wMY2EW7SfddWARAc?fileCount=241&message=  
+  
+ Sun Feb 11 2018 12:37:32 GMT-0500 (EST)
