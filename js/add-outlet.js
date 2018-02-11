@@ -134,7 +134,7 @@ angular.module('app')
                     case 'finished-pair': 
                         this.state = 'finished-pair';
                         $timeout(1000)
-                            .then( () => $state.go('firstTimeConfigure', { outletId: outlet.$id }) )
+                            .then( () => $state.go('outlet', { outletId: outlet.$id }) )
                         break;
                 }
             })

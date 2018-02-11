@@ -95,8 +95,18 @@ angular.module('app', ['firebase', 'ui.router'])
         $stateProvider.state({
             name: 'main',
             url: '/',
-            templateUrl: '/templates/main.html' 
-        });
+            component: 'outletList',
+            resolve: {
+                uid: function($firebaseAuth, $state){
+                    return $firebaseAuth().$requireSignIn().then(function(auth){
+                        return auth.uid;
+                    })
+                    .catch(function () {
+                        $state.go('signIn');
+                    });
+                }
+            }
+        })
 
         $stateProvider.state({
             name: 'camera',
