@@ -62,13 +62,13 @@ angular.module('app', ['firebase', 'ui.router'])
             ctrl.save = function() { }
         }],
         template: 
-            `<div ng-show="!$ctrl.outlet.photo">
+            `<div class="camera" ng-show="!$ctrl.outlet.photo">
                 <canvas></canvas>
-                <button ng-click="$ctrl.takePhoto()">Take Picture</button>
+                <button class="btn btn-primary btn-lg" ng-click="$ctrl.takePhoto()">Take Picture</button>
             </div>
-            <div ng-show="$ctrl.outlet.photo">
+            <div class="camera" ng-show="$ctrl.outlet.photo">
                 <img ng-src="{{$ctrl.outlet.photo}}">
-                <button ng-click="$ctrl.retake()">Retake</button>
+                <button class="btn btn-primary btn-lg" ng-click="$ctrl.retake()">Retake</button>
             </div>
         `
     })

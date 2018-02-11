@@ -1,9 +1,13 @@
 <mobile-wrapper>
-    <h1>Pairing Outlet</h1>
-    <div ng-switch="$ctrl.state">
-        <p ng-switch-when="looking-for-outlet">Looking for the outlet...</p>
-        <p ng-switch-when="outlet-found">Found your Outlet!  Syncing...</p>
-        <p ng-switch-when="configuring-outlet">Configuring your outlet...</p>
-        <p ng-switch-when="finished-pair">Your outlet has been paired!</p>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Pairing Outlet</h1>
+            <div ng-switch="$ctrl.state">
+                <p ng-switch-when="looking-for-outlet">Looking for the outlet...</p>
+                <p ng-switch-when="outlet-found">Found your Outlet!  Syncing...</p>
+                <p ng-switch-when="configuring-outlet">Configuring your outlet...</p>
+                <p ng-switch-when="finished-pair">Your outlet has been paired!</p>
+            </div>
+        </div>
     </div>
 </mobile-wrapper>

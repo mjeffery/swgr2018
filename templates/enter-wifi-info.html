@@ -1,16 +1,24 @@
 <mobile-wrapper>
-    <h1>Wifi Network</h1>
-    <form name="wifiForm" ng-submit="$ctrl.saveNetwork()">
-        <div>
-            <label for="ssid">Network</label>
-            <select ng-model="$ctrl.network" ng-options="network.ssid for network in $ctrl.networks">
-                <option value="">-- choose network --</option>
-            </select>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Wifi Network</h1>
+            <p>Configure your devices wifi.</p>
         </div>
-        <div ng-show="$ctrl.network.private">
-            <label for="password" ng-model="$ctrl.password">Password</label>
-            <input name="password" type="password" ng-model="$ctrl.password">
-        </div>
-        <button type="submit">Save Network</button>
-    </form>
+    </div>
+    <div class="container">
+
+        <form name="wifiForm" ng-submit="$ctrl.saveNetwork()">
+            <div class="form-group">
+                <label for="ssid">Network</label>
+                <select class="form-control" ng-model="$ctrl.network" ng-options="network.ssid for network in $ctrl.networks">
+                    <option value="">-- choose network --</option>
+                </select>
+            </div>
+            <div class="form-group" ng-show="$ctrl.network.private">
+                <label for="password" ng-model="$ctrl.password">Password</label>
+                <input class="form-control" name="password" type="password" ng-model="$ctrl.password">
+            </div>
+            <button class="btn btn-primary" type="submit">Save Network</button>
+        </form>
+    </div>
 </mobile-wrapper>

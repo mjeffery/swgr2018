@@ -1,5 +1,8 @@
 <mobile-wrapper>
+    <div class="container">
     <h2>Take a picture of the attached device to remember it</h2>
+        <button ng-click="$ctrl.takePictureLater()">Not right now</button>
     <camera outlet="$ctrl.outlet"></camera>
-    <button ng-click="$ctrl.takePictureLater()">Not right now</button>
+    </div>
+
 </mobile-wrapper>

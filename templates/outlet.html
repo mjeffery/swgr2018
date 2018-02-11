@@ -1,18 +1,17 @@
 <mobile-wrapper>
-    <div>
-        <h1>
-            OUTLET
-        </h1>
-        <p>
-            <label>Name</label><br>
-            <input ng-model="$ctrl.outlet.name">
-        </p>
-        <p>
-            <label>Status</label><br>
-            <input ng-model="$ctrl.status.$value">
-        </p>
-        <button ng-click="$ctrl.turnOn()">Turn On</button>
-        <button ng-click="$ctrl.turnOff()">Turn Off</button>
+    <div class="jumbotron">
+        <h1>Configure outlet</h1>
+    </div>
+    <div class="container">
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" ng-model="$ctrl.outlet.name">
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <input class="form-control" ng-model="$ctrl.status.$value">
+        </div>
+
         <camera outlet="$ctrl.outlet"></camera>
     </div>
 </mobile-wrapper>
