@@ -20,14 +20,42 @@ angular.module('app', ['firebase', 'ui.router'])
         bindings: { name: '@' }
     })
 
-    .component('usersList', {
-        controller: ['users', function(users) {
+    .component('camera', {
+        controller: ['$element', function($element) {
             var ctrl = this;
-            ctrl.users = users;
+            let canvas = $element.find('canvas');
+
+            ctrl.photo = null;
+
+            let camera = new Camera(canvas[0]);
+            camera.start();
+
+            ctrl.takePhoto = function() {
+                camera.stop();
+
+                ctrl.photo = camera.getSnapshot();
+
+            };
+
+            ctrl.retake = function() {
+                ctrl.photo = null;
+                camera.start();
+            };
+
+            ctrl.save = function() {
+
+            };
+
         }],
         template: `
-            <div>
-                <p ng-repeat="user in $ctrl.users">{{user|json}}</p> 
+            <div ng-show="!$ctrl.photo">
+                <canvas></canvas>
+                <button ng-click="$ctrl.takePhoto()">Take Picture</button>
+            </div>
+            <div ng-show="$ctrl.photo">
+                <img ng-src="{{$ctrl.photo}}">
+                <button ng-click="$ctrl.retake()">Retake</button>
+                <button ng-click="$ctrl.save()">Save</button>
             </div>
         `
     })
@@ -55,7 +83,13 @@ angular.module('app', ['firebase', 'ui.router'])
             name: 'main',
             url: '/',
             templateUrl: '/templates/main.html' 
-        })
+        });
+
+        $stateProvider.state({
+            name: 'camera',
+            url: '/camera',
+            templateUrl: '/templates/camera.html'
+        });
 
         $urlRouterProvider.otherwise('/sign-in');
     })
