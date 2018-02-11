@@ -19,8 +19,7 @@
 
                     <div class="card-block">
                         <h4 class="card-title">{{outlet.name}}</h4>
-                        <h6 class="card-subtitle mb-2 text-muted">{{outlet.status}}</h6>
-                        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+
                         <div class="text-right">
                             <a ui-sref="outlet({outletId: outlet.$id})" class="btn btn-link">Edit</a>
                             <a ui-sref="outlets" ng-click="$ctrl.delete(outlet.$id)" class="btn btn-link text-danger">Delete</a>

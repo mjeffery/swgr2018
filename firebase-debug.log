@@ -1,0 +1,52 @@
+[debug] [2018-02-11T16:54:28.491Z] ----------------------------------------------------------------------
+[debug] [2018-02-11T16:54:28.495Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2018-02-11T16:54:28.496Z] CLI Version:   3.17.4
+[debug] [2018-02-11T16:54:28.496Z] Platform:      darwin
+[debug] [2018-02-11T16:54:28.496Z] Node Version:  v9.4.0
+[debug] [2018-02-11T16:54:28.496Z] Time:          Sun Feb 11 2018 11:54:28 GMT-0500 (EST)
+[debug] [2018-02-11T16:54:28.496Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-11T16:54:28.508Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-11T16:54:28.509Z] > authorizing via signed-in user
+[debug] [2018-02-11T16:54:28.510Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/swgr2018  
+  
+ Sun Feb 11 2018 11:54:28 GMT-0500 (EST)
+[debug] [2018-02-11T16:54:29.115Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T16:54:29.116Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/swgr2018/tokens  
+  
+ Sun Feb 11 2018 11:54:29 GMT-0500 (EST)
+[debug] [2018-02-11T16:54:29.422Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'swgr2018'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing . directory for upload...
+[debug] [2018-02-11T16:54:30.730Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/swgr2018/uploads/-L54mWUBJoJ9NSr5LxB5?fileCount=161&message=  
+  
+ Sun Feb 11 2018 11:54:30 GMT-0500 (EST)
+[debug] [2018-02-11T16:56:59.027Z] ----------------------------------------------------------------------
+[debug] [2018-02-11T16:56:59.031Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2018-02-11T16:56:59.032Z] CLI Version:   3.17.4
+[debug] [2018-02-11T16:56:59.032Z] Platform:      darwin
+[debug] [2018-02-11T16:56:59.032Z] Node Version:  v9.4.0
+[debug] [2018-02-11T16:56:59.032Z] Time:          Sun Feb 11 2018 11:56:59 GMT-0500 (EST)
+[debug] [2018-02-11T16:56:59.032Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-11T16:56:59.053Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-11T16:56:59.053Z] > authorizing via signed-in user
+[debug] [2018-02-11T16:56:59.056Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/swgr2018  
+  
+ Sun Feb 11 2018 11:56:59 GMT-0500 (EST)
+[debug] [2018-02-11T16:56:59.430Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-11T16:56:59.432Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/swgr2018/tokens  
+  
+ Sun Feb 11 2018 11:56:59 GMT-0500 (EST)
+[debug] [2018-02-11T16:56:59.800Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'swgr2018'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing . directory for upload...
+[debug] [2018-02-11T16:57:01.391Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/swgr2018/uploads/-L54n5DLjkRcG8FbFlAE?fileCount=161&message=  
+  
+ Sun Feb 11 2018 11:57:01 GMT-0500 (EST)
