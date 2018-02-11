@@ -1,26 +1,31 @@
-<mobile-wrapper>
-    <h1>Outlets</h1>
+<div class="container">
+    <mobile-wrapper>
+        <h1>Outlets</h1>
 
-    <div class="row">
-        <div class="col-sm-4" ng-repeat="outlet in $ctrl.outlets">
-            <div class="card outlet" style="width: 18rem;">
+        <div class="row">
+            <div class="col-sm-4" ng-repeat="outlet in $ctrl.outlets">
+                <div class="card outlet" style="width: 18rem;">
 
-                <img class="card-img-top" src="{{outlet.photo}}" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">{{outlet.name}}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">{{outlet.status}}</h6>
-                    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-                    <a ui-sref="outlet({outletId: outlet.$id})">Edit</a>
+                    <img class="card-img-top" src="{{outlet.photo || 'http://via.placeholder.com/350x200'}}" alt="Card image cap">
+
+                    <div class="card-block">
+                        <h4 class="card-title">{{outlet.name}}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{outlet.status}}</h6>
+                        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                        <a ui-sref="outlet({outletId: outlet.$id})">Edit</a>
+                    </div>
+
                     <div class="card-footer text-muted">
                         <div class="btn-group" role="group" aria-label="Basic example">
                             <button type="button" class="btn btn-success">On</button>
                             <button type="button" class="btn danger">Off</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
-    </div>
 
-    <button ng-click="$ctrl.addOutlet()">Add Outlet</button>
-<mobile-wrapper>
+        <button ng-click="$ctrl.addOutlet()">Add Outlet</button>
+    </mobile-wrapper>
+</div>
