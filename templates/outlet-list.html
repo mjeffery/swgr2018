@@ -1,23 +1,29 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Outlets</h1>
+        <p>Manage your outlets</p>
+    </div>
+</div>
 <div class="container">
     <mobile-wrapper>
-        <h1>Outlets</h1>
-
         <div class="row">
             <div class="col-sm-4" ng-repeat="outlet in $ctrl.outlets">
                 <div class="card outlet" style="width: 18rem;">
 
                     <img class="card-img-top" src="{{outlet.photo || 'http://via.placeholder.com/350x200'}}" alt="Card image cap">
 
-                    <div class="card-block">
-                        <h4 class="card-title">{{outlet.name}}</h4>
-                        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-                        <a ui-sref="outlet({outletId: outlet.$id})">Edit</a>
+                    <div class="btn-group  toggle-controls" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-success" ng-disabled="$ctrl.status.$value == 0" ng-click="$ctrl.turnOn(outlet)">On</button>
+                        <button type="button" class="btn danger"  ng-disabled="$ctrl.status.$value == 1" ng-click="$ctrl.turnOff(outlet)">Off</button>
                     </div>
 
-                    <div class="card-footer text-muted">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-success" ng-disabled="$ctrl.status.$value == 0" ng-click="$ctrl.turnOn(outlet)">On</button>
-                            <button type="button" class="btn danger"  ng-disabled="$ctrl.status.$value == 1" ng-click="$ctrl.turnOff(outlet)">Off</button>
+                    <div class="card-block">
+                        <h4 class="card-title">{{outlet.name}}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{outlet.status}}</h6>
+                        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                        <div class="text-right">
+                            <a ui-sref="outlet({outletId: outlet.$id})" class="btn btn-link">Edit</a>
+                            <a ui-sref="outlets" ng-click="$ctrl.delete(outlet.$id)" class="btn btn-link text-danger">Delete</a>
                         </div>
                     </div>
 
@@ -25,6 +31,6 @@
             </div>
         </div>
 
-        <button ng-click="$ctrl.addOutlet()">Add Outlet</button>
+        <button class="btn btn-lg btn-success" ng-click="$ctrl.addOutlet()">Add Outlet</button>
     </mobile-wrapper>
 </div>
