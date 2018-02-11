@@ -5,10 +5,15 @@ angular.module('app')
 
     }])
 
+    .factory('mqttstatus2', ['$firebaseObject', function($firebaseObject) {
+        return $firebaseObject(firebase.database().ref('mqttstatus2'));;
+    }])
+
     .component('outletList', {
         templateUrl: '/templates/outlet-list.html',
         bindings: {
-            uid: '<'
+            uid: '<',
+            status: '<'
         },
         controller: function(outlets) {
             var ctrl = this;
@@ -27,14 +32,21 @@ angular.module('app')
     .component('outlet', {
         templateUrl: '/templates/outlet.html',
         bindings: {
-            outlet: '<'
+            outlet: '<',
+            status: '<'
         },
-        controller: ['$interval', function($interval) {
+        controller: function(outlets) {
             var ctrl = this;
+            ctrl.turnOn = function(){
+                ctrl.outlet.status = "1a";
+                outlets.$save(ctrl.outlet);
+            };
+            ctrl.turnOff = function(){
+                ctrl.outlet.status = "0a";
+                outlets.$save(ctrl.outlet);
+            }
 
-
-
-        }]
+        }
     })
 
     .config(function($stateProvider) {
@@ -53,6 +65,11 @@ angular.module('app')
                     return outlets.$loaded().then(function(outletData){
                         return outletData.$getRecord($stateParams.outletId);
                     });
+                },
+                status: function(mqttstatus2){
+                    return mqttstatus2.$loaded().then(function(outletData){
+                        return outletData;
+                    });
                 }
             }
         });
@@ -69,6 +86,11 @@ angular.module('app')
                         .catch(function () {
                             $state.go('/');
                         });
+                },
+                status: function(mqttstatus2){
+                    return mqttstatus2.$loaded().then(function(outletData){
+                        return outletData;
+                    });
                 }
             }
         });

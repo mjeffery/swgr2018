@@ -2,7 +2,7 @@ Outlet List
 
 <div ng-repeat="outlet in $ctrl.outlets">
     <a ui-sref="outlet({outletId: outlet.$id})">{{outlet.name}}</a>
-    <span class="status">{{outlet.status}}</span>
+    <span class="status">{{$ctrl.status.$value}}</span>
 </div>
 
 <button ng-click="$ctrl.addOutlet()">Add Outlet</button>

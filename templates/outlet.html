@@ -10,8 +10,10 @@
     </p>
     <p>
         <label>Status</label><br>
-        <input ng-model="$ctrl.outlet.name">
+        <input ng-model="$ctrl.status.$value">
     </p>
 
+    <button ng-click="$ctrl.turnOn()">Turn On</button>
+    <button ng-click="$ctrl.turnOff()">Turn Off</button>
     <camera outlet="$ctrl.outlet"></camera>
 </div>

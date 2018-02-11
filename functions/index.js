@@ -7,7 +7,7 @@ admin.initializeApp(functions.config().firebase);
 var client  = mqtt.connect('mqtt://broker.mqttdashboard.com');
 var options = {qos: 0,retain: true};
 
-exports.sendMessage = functions.database.ref('/mqtt/{messageid}').onWrite(function(event) {
+exports.sendMessage = functions.database.ref('/outlets/{outletId}/status').onWrite(function(event) {
 
     console.log("function start");
     return new Promise( function(resolve, reject) {
@@ -18,8 +18,11 @@ exports.sendMessage = functions.database.ref('/mqtt/{messageid}').onWrite(functi
 
 });
 
-client.subscribe('startupweekend/simple2');
+client.subscribe('startupweekend/simplereply');
 
 client.on('message', function (topic, message) {
-    console.log(message.toString());
+    var status = message.toString();
+    console.log(status);
+
+    return admin.database().ref('/mqttstatus2').set(status);
 });
