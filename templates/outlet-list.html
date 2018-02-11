@@ -13,15 +13,21 @@
                     <img class="card-img-top" src="{{outlet.photo || 'http://via.placeholder.com/350x200'}}" alt="Card image cap">
 
                     <div class="btn-group  toggle-controls" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-success" ng-click="$ctrl.turnOn(outlet)">On</button>
-                        <button type="button" class="btn danger"  ng-click="$ctrl.turnOff(outlet)">Off</button>
+                        <button type="button" class="btn btn-success" 
+                            ng-tap="$ctrl.turnOn(outlet)"
+                            ng-click="$ctrl.turnOn(outlet)">On</button>
+                        <button type="button" class="btn danger"  
+                            ng-tap="$ctrl.turnOff(outlet)"
+                            ng-click="$ctrl.turnOff(outlet)">Off</button>
                     </div>
 
                     <div class="card-body">
                         <h4 class="card-title">{{outlet.name}}</h4>
                         <div class="text-right">
                             <a ui-sref="outlet({outletId: outlet.$id})" class="btn btn-link">Edit</a>
-                            <a ui-sref="outlets" ng-click="$ctrl.delete(outlet.$id)" class="btn btn-link text-danger">Delete</a>
+                            <a ui-sref="outlets" 
+                                ng-tap="$ctrl.delete(outlet.$id)" 
+                                ng-click="$ctrl.delete(outlet.$id)" class="btn btn-link text-danger">Delete</a>
                         </div>
                     </div>
 
@@ -29,6 +35,6 @@
             </div>
         </div>
 
-        <button class="btn btn-lg btn-block btn-success" ng-click="$ctrl.addOutlet()">Add Outlet</button>
+        <button class="btn btn-lg btn-block btn-success" ng-tap="$ctrl.addOutlet()" ng-click="$ctrl.addOutlet()">Add Outlet</button>
     </mobile-wrapper>
 </div>

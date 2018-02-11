@@ -1,4 +1,4 @@
-angular.module('app', ['firebase', 'ui.router'])
+angular.module('app', ['firebase', 'ui.router', 'ngTouch'])
 
     .component('app', {
         templateUrl: '/templates/app.html',
