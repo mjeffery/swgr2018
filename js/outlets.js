@@ -32,6 +32,9 @@ angular.module('app')
                 outlet.status = "0a";
                 outlets.$save(outlet);
             }
+            ctrl.delete = function(outlet){
+                outlets.$remove(outlet);
+            }
         }
     })
 
