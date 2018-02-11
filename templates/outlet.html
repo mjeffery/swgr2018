@@ -4,6 +4,14 @@
     </h1>
 
     {{$ctrl.outlet | json}}
+    <p>
+        <label>Name</label><br>
+        <input ng-model="$ctrl.outlet.name">
+    </p>
+    <p>
+        <label>Status</label><br>
+        <input ng-model="$ctrl.outlet.name">
+    </p>
 
     <camera outlet="$ctrl.outlet"></camera>
 </div>
