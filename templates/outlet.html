@@ -1,6 +1,9 @@
+<div>
+    <h1>
+        OUTLET
+    </h1>
 
-<h1>
-    OUTLET
-</h1>
+    {{$ctrl.outlet | json}}
 
-{{$ctrl.outlet | json}}
+    <camera outlet="$ctrl.outlet"></camera>
+</div>

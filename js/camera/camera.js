@@ -6,6 +6,7 @@ class Camera {
     }
 
     start() {
+        this.stop();
         this.canvas.style.display = "block";
         this.isProcessing = false;
         this.interval = setInterval(() => {
@@ -27,7 +28,31 @@ class Camera {
     }
 
     getSnapshot() {
-        return this.canvas.toDataURL();
+        return this.imageToDataUri(this.canvas.width * .5, this.canvas.height * .5);
+    }
+
+    imageToDataUri(width, height) {
+        return new Promise((resolve, reject)=>{
+            // create an off-screen canvas
+            var canvas = document.createElement('canvas');
+
+            var img = document.createElement('img');
+            document.body.append(canvas);
+            document.body.append(img);
+            canvas.style.display = "none";
+            img.style.display = "none";
+            img.src = this.canvas.toDataURL();
+            img.onload = ()=> {
+                // set its dimension to target size
+                canvas.width = width;
+                canvas.height = height;
+
+                var ctx = canvas.getContext('2d');
+
+                ctx.drawImage(img, 0, 0, width, height);
+                setTimeout(()=>resolve(canvas.toDataURL()), 200);
+            }
+        })
     }
 
     processFrame(imageBitmap) {

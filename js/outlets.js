@@ -12,6 +12,7 @@ angular.module('app')
         },
         controller: function(outlets) {
             var ctrl = this;
+
             ctrl.outlets = outlets;
 
             ctrl.addOutlet = function(){
@@ -28,10 +29,12 @@ angular.module('app')
         bindings: {
             outlet: '<'
         },
-        controller: function() {
+        controller: ['$interval', function($interval) {
             var ctrl = this;
 
-        }
+
+
+        }]
     })
 
     .config(function($stateProvider) {

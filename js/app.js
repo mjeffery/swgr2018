@@ -21,39 +21,57 @@ angular.module('app', ['firebase', 'ui.router'])
     })
 
     .component('camera', {
-        controller: ['$element', function($element) {
+        bindings: {
+            //outlet: '^^outlet',
+            outlet: '<'
+        },
+        controller: ['$interval', '$element', 'outlets', function($interval, $element, outlets) {
             var ctrl = this;
-            let canvas = $element.find('canvas');
+            let camera = null;
+            ctrl.$postLink = function() {
 
-            ctrl.photo = null;
+                if(camera) {
+                    this.camera.stop();
+                }
 
-            let camera = new Camera(canvas[0]);
-            camera.start();
+                let canvas = $element.find('canvas');
+                camera = new Camera(canvas[0]);
+                ctrl.something = true;
+                if(!ctrl.outlet.photo) {
+                    camera.start();
+                }
+            };
+
+            ctrl.outlets = outlets;
 
             ctrl.takePhoto = function() {
                 camera.stop();
 
-                ctrl.photo = camera.getSnapshot();
-
+                ctrl.outlet.photo = camera.getSnapshot()
+                    .then((photo)=>{
+                        ctrl.outlet.photo = photo;
+                        ctrl.outlets.$save(ctrl.outlet);
+                    })
             };
 
             ctrl.retake = function() {
-                ctrl.photo = null;
+                ctrl.outlet.photo = null;
+                ctrl.outlets.$save(ctrl.outlet);
                 camera.start();
             };
 
             ctrl.save = function() {
-
+                //ctrl.outlet.outlet.photo = ctrl.photo;
             };
 
         }],
         template: `
-            <div ng-show="!$ctrl.photo">
+            <div ng-show="!$ctrl.outlet.photo">
                 <canvas></canvas>
                 <button ng-click="$ctrl.takePhoto()">Take Picture</button>
             </div>
-            <div ng-show="$ctrl.photo">
-                <img ng-src="{{$ctrl.photo}}">
+            <div ng-show="$ctrl.outlet.photo">
+                <img ng-src="{{$ctrl.outlet.photo}}">
                 <button ng-click="$ctrl.retake()">Retake</button>
                 <button ng-click="$ctrl.save()">Save</button>
             </div>
