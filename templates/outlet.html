@@ -3,15 +3,15 @@
         OUTLET
     </h1>
 
-    {{$ctrl.outlet | json}}
     <p>
         <label>Name</label><br>
         <input ng-model="$ctrl.outlet.name">
     </p>
     <p>
         <label>Status</label><br>
-        <input ng-model="$ctrl.outlet.name">
+        <input ng-model="$ctrl.outlet.status">
     </p>
 
     <camera outlet="$ctrl.outlet"></camera>
+    <button ng-click="$ctrl.save()">Save</button>
 </div>

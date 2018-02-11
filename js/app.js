@@ -73,7 +73,6 @@ angular.module('app', ['firebase', 'ui.router'])
             <div ng-show="$ctrl.outlet.photo">
                 <img ng-src="{{$ctrl.outlet.photo}}">
                 <button ng-click="$ctrl.retake()">Retake</button>
-                <button ng-click="$ctrl.save()">Save</button>
             </div>
         `
     })

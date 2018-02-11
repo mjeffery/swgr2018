@@ -29,11 +29,12 @@ angular.module('app')
         bindings: {
             outlet: '<'
         },
-        controller: ['$interval', function($interval) {
+        controller: ['outlets', function(outlets) {
             var ctrl = this;
 
-
-
+            ctrl.save = () => {
+                outlets.$save(this.outlet);
+            }
         }]
     })
 
