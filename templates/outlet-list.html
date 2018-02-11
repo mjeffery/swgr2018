@@ -1,9 +1,9 @@
 Outlet List
 
-<p ng-repeat="outlet in $ctrl.outlets">
-    <a ui-sref="outlet({outletId: outlet.$id})" >View Outlet</a>
-    {{outlet|json}}
-</p>
+<div ng-repeat="outlet in $ctrl.outlets">
+    <a ui-sref="outlet({outletId: outlet.$id})">{{outlet.name}}</a>
+    <span class="status">{{outlet.status}}</span>
+</div>
 
 <button ng-click="$ctrl.addOutlet()">Add Outlet</button>
 

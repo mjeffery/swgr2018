@@ -1,6 +1,17 @@
+<div>
+    <h1>
+        OUTLET
+    </h1>
 
-<h1>
-    OUTLET
-</h1>
+    {{$ctrl.outlet | json}}
+    <p>
+        <label>Name</label><br>
+        <input ng-model="$ctrl.outlet.name">
+    </p>
+    <p>
+        <label>Status</label><br>
+        <input ng-model="$ctrl.outlet.name">
+    </p>
 
-{{$ctrl.outlet | json}}
+    <camera outlet="$ctrl.outlet"></camera>
+</div>
