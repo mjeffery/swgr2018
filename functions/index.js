@@ -17,3 +17,9 @@ exports.sendMessage = functions.database.ref('/mqtt/{messageid}').onWrite(functi
    });
 
 });
+
+client.subscribe('startupweekend/simple2');
+
+client.on('message', function (topic, message) {
+    console.log(message.toString());
+});
