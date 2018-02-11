@@ -15,16 +15,13 @@ angular.module('app')
             uid: '<',
             status: '<'
         },
-        controller: function(outlets) {
+        controller: function($state, outlets) {
             var ctrl = this;
 
             ctrl.outlets = outlets;
 
             ctrl.addOutlet = function() {
-                var outlet = {name: 'bathroom', status: 'enabled'};
-                ctrl.outlets.$add(outlet).then(function(data){
-                    ctrl.result = data;
-                })
+                $state.go('locateNewOutlet');
             }
 
             ctrl.turnOn = function(outlet){

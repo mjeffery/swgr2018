@@ -18,6 +18,7 @@ exports.sendMessage = functions.database.ref('/outlets/{outletId}/status').onWri
 
 });
 
+<<<<<<< HEAD
 client.subscribe('startupweekend/simplereply');
 
 client.on('message', function (topic, message) {
@@ -26,3 +27,22 @@ client.on('message', function (topic, message) {
 
     return admin.database().ref('/mqttstatus2').set(status);
 });
+=======
+exports.pairDevice = functions.database.ref('/outlets/{outletId}').onWrite(function(event) {
+    let outlet = event.data.val();
+    if(outlet.status == 'unpaired') {
+        return new Promise( (resolve, reject) => {
+            setTimeout( () => {
+                let update = event.data.ref.update({ status: 'paired' }) 
+                resolve(update)  
+            }, 3000)
+        })
+    }
+});
+
+client.subscribe('startupweekend/simple2');
+
+client.on('message', function (topic, message) {
+    console.log(message.toString());
+});
+>>>>>>> now uses the pairing flow
