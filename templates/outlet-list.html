@@ -13,8 +13,8 @@
                     <img class="card-img-top" src="{{outlet.photo || 'http://via.placeholder.com/350x200'}}" alt="Card image cap">
 
                     <div class="btn-group  toggle-controls" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-success" ng-disabled="$ctrl.status.$value == 1" ng-click="$ctrl.turnOn(outlet)">On</button>
-                        <button type="button" class="btn danger"  ng-disabled="$ctrl.status.$value != 1" ng-click="$ctrl.turnOff(outlet)">Off</button>
+                        <button type="button" class="btn btn-success" ng-click="$ctrl.turnOn(outlet)">On</button>
+                        <button type="button" class="btn danger"  ng-click="$ctrl.turnOff(outlet)">Off</button>
                     </div>
 
                     <div class="card-body">
