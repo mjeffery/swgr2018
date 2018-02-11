@@ -9,7 +9,7 @@ var options = {qos: 0,retain: true};
 
 exports.sendMessage = functions.database.ref('/outlets/{outletId}/status').onWrite(function(event) {
 
-    console.log("function start");
+    console.log("function start: " + event.data.val());
     return new Promise( function(resolve, reject) {
         client.publish("startupweekend/simple", event.data.val(), options, function(error){
             resolve();

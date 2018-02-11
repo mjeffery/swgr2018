@@ -20,7 +20,7 @@ angular.module('app')
 
             ctrl.outlets = outlets;
 
-            ctrl.addOutlet = function(){
+            ctrl.addOutlet = function() {
                 var outlet = {name: 'bathroom', status: 'enabled'};
                 ctrl.outlets.$add(outlet).then(function(data){
                     ctrl.result = data;
@@ -56,18 +56,18 @@ angular.module('app')
             url: '/outlets/:outletId',
             component: 'outlet',
             resolve: {
-                requireAuth: function($firebaseAuth, $state){
-                    return $firebaseAuth().$requireSignIn().catch(function(){
+                requireAuth: function ($firebaseAuth, $state) {
+                    return $firebaseAuth().$requireSignIn().catch(function () {
                         $state.go('/');
                     });
                 },
-                outlet: function($stateParams, outlets){
-                    return outlets.$loaded().then(function(outletData){
+                outlet: function ($stateParams, outlets) {
+                    return outlets.$loaded().then(function (outletData) {
                         return outletData.$getRecord($stateParams.outletId);
                     });
                 },
-                status: function(mqttstatus2){
-                    return mqttstatus2.$loaded().then(function(outletData){
+                status: function (mqttstatus2) {
+                    return mqttstatus2.$loaded().then(function (outletData) {
                         return outletData;
                     });
                 }
@@ -79,16 +79,16 @@ angular.module('app')
             url: '/outlets',
             component: 'outletList',
             resolve: {
-                uid: function($firebaseAuth, $state){
-                    return $firebaseAuth().$requireSignIn().then(function(auth){
+                uid: function ($firebaseAuth, $state) {
+                    return $firebaseAuth().$requireSignIn().then(function (auth) {
                         return auth.uid;
                     })
                         .catch(function () {
                             $state.go('/');
                         });
                 },
-                status: function(mqttstatus2){
-                    return mqttstatus2.$loaded().then(function(outletData){
+                status: function (mqttstatus2) {
+                    return mqttstatus2.$loaded().then(function (outletData) {
                         return outletData;
                     });
                 }

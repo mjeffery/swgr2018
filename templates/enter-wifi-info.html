@@ -1,14 +1,16 @@
-<h1>Wifi Network</h1>
-<form name="wifiForm" ng-submit="$ctrl.saveNetwork()">
-    <div>
-        <label for="ssid">Network</label>
-        <select ng-model="$ctrl.network" ng-options="network.ssid for network in $ctrl.networks">
-            <option value="">-- choose network --</option>
-        </select>
-    </div>
-    <div ng-show="$ctrl.network.private">
-        <label for="password" ng-model="$ctrl.password">Password</label>
-        <input name="password" type="password" ng-model="$ctrl.password">
-    </div>
-    <button type="submit">Save Network</button>
-</form>
+<mobile-wrapper>
+    <h1>Wifi Network</h1>
+    <form name="wifiForm" ng-submit="$ctrl.saveNetwork()">
+        <div>
+            <label for="ssid">Network</label>
+            <select ng-model="$ctrl.network" ng-options="network.ssid for network in $ctrl.networks">
+                <option value="">-- choose network --</option>
+            </select>
+        </div>
+        <div ng-show="$ctrl.network.private">
+            <label for="password" ng-model="$ctrl.password">Password</label>
+            <input name="password" type="password" ng-model="$ctrl.password">
+        </div>
+        <button type="submit">Save Network</button>
+    </form>
+</mobile-wrapper>

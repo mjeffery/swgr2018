@@ -1,18 +1,22 @@
-<h1>Register</h1>
-<div ng-if="$ctrl.error">{{$ctrl.error}}</div>
-<form name="registerForm" ng-submit="$ctrl.register()">
-    <div>
-        <label for="email">email</label>
-        <input name="email" ng-model="$ctrl.email" ng-required>
-    </div>
-    <div>
-        <label for="password">password</label>
-        <input name="password" type="password" ng-model="$ctrl.password" ng-required>
-    </div>
-    <div>
-        <label for="retypePassword">retype password</label>
-        <input name="retypePassword" type="password" ng-model="$ctrl.retypePassword" ng-required>
-    </div>
-    <button ng-disabled="registerForm.$invalid" type="submit">Register</button>
-    <a ui-sref="sign-in">sign in</a>
-</form>
+<<<<<<< HEAD
+<mobile-wrapper>
+    <h1>Register</h1>
+    <div ng-if="$ctrl.error">{{$ctrl.error}}</div>
+    <form name="registerForm" ng-submit="$ctrl.register()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" name="email" ng-model="$ctrl.email" ng-required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" name="password" type="password" ng-model="$ctrl.password" ng-required>
+        </div>
+        <div class="form-group">
+            <label for="retypePassword">Retype Password</label>
+            <input class="form-control" name="retypePassword" type="password" ng-model="$ctrl.retypePassword" ng-required>
+        </div>
+        <button ng-disabled="registerForm.$invalid" type="submit">Register</button>
+        <br>
+        <a ui-sref="sign-in" class="btn-link" href>Sign in</a>
+    </form>
+</mobile-wrapper>
